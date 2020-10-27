@@ -110,7 +110,7 @@ install_server(){
             mv -f ./libraries ./DELETEME
             mv -f ./library ./DELETEME
             mv -f ./minecraft_server*.jar ./DELETEME
-            mv -f ./forge*universal.jar ./DELETEME
+            mv -f ./forge*.jar ./DELETEME
             mv -f ./OpenComputersMod*lua* ./DELETEME
         } >>logs/serverstart.log 2>&1
         echo "Installing Forge Server, please wait..."
@@ -378,7 +378,7 @@ while $run ; do
         echo "Required files not found, need to install Forge"
         install_server
     fi
-    forge=$(ls forge*"$MC_SERVER_MCVER"*"$MC_SERVER_FORGEVER"*universal.jar 2>>logs/serverstart.log)
+    forge=$(ls forge*"$MC_SERVER_MCVER"*"$MC_SERVER_FORGEVER"*.jar 2>>logs/serverstart.log)
     if [[ $? != 0 ]] ; then
         echo "WARN: no forge jar for MCVER: $MC_SERVER_MCVER and FORGEVER: $MC_SERVER_FORGEVER found"  >>logs/serverstart.log
         echo "Required files not found, need to install Forge"
